@@ -98,7 +98,7 @@ class TestValidInputs(unittest.TestCase):
 
         sig = schnorr_sign(message, private_key)
         # is_verified = schnorr_verify(message, public_key, signature)
-        self.assertTrue(bytearray(sig), signature)
+        self.assertEqual(bytearray(sig), signature)
         # self.assertTrue(is_verified)
 
     def test_vector2(self):
@@ -109,18 +109,18 @@ class TestValidInputs(unittest.TestCase):
 
         sig = schnorr_sign(message, private_key)
         # is_verified = schnorr_verify(message, public_key, signature)
-        self.assertTrue(bytearray(sig), signature)
+        self.assertEqual(bytearray(sig), signature)
         # self.assertTrue(is_verified)
 
     def test_vector3(self):
         private_key = self.input['three']['private_key']
         public_key = self.input['three']['public_key']
         message = self.input['three']['message']
-        signature = self.input['two']['signature']
+        signature = self.input['three']['signature']
 
         sig = schnorr_sign(message, private_key)
         # is_verified = schnorr_verify(message, public_key, signature)
-        self.assertTrue(bytearray(sig), signature)
+        self.assertEqual(bytearray(sig), signature)
         # self.assertTrue(is_verified)
 
 if __name__ == '__main__':
